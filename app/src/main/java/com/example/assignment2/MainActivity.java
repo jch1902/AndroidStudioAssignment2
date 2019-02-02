@@ -52,9 +52,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void setDefaultMinMax(){
-        //Convert the values to strings
-        this.minEditText.setText(Integer.toString(min));
-        this.maxEditText.setText(Integer.toString(max));
+     /*   this.maxEditText.setText(max);
+        this.minEditText.setText(min); */
+        String minStr = Integer.toString(min);
+        String maxStr = Integer.toString(max);
+        this.minEditText.setText(minStr);
+        this.maxEditText.setText(maxStr);
     }
     private void fetchValuesFromFields(){
         //Get the numbers from the text boxes
