@@ -39,13 +39,16 @@ public class MainActivity extends AppCompatActivity {
         this.results = findViewById(R.id.result);
         this.generate = (Button) findViewById(R.id.button);
         //Generate
-        if(this.generate != null){ //prevents crash
+        if(this.generate != null ){ //prevents crash
             this.generate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    fetchValuesFromFields();
-                    generateRandomNumber();
-
+                    if(max<min){
+                        InvalidValues();
+                    }else {
+                        fetchValuesFromFields();
+                        generateRandomNumber();
+                    }
                 }
 
             });
@@ -76,5 +79,9 @@ public class MainActivity extends AppCompatActivity {
        //Generate the random number
         Random randomNumber = new Random();
         return randomNumber.nextInt(maxi) + mini;
+    }
+    private void InvalidValues(){
+        String errorString = "Maximum value is smaller than the minimum value.";
+        results.setText(errorString);
     }
 }
