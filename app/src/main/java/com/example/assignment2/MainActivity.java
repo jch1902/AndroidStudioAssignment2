@@ -39,25 +39,27 @@ public class MainActivity extends AppCompatActivity {
         this.results = findViewById(R.id.result);
         this.generate = (Button) findViewById(R.id.button);
         //Generate
-        this.generate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fetchValuesFromFields();
-                generateRandomNumber();
+        if(this.generate != null){ //prevents crash
+            this.generate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    fetchValuesFromFields();
+                    generateRandomNumber();
 
-            }
-        });
+                }
+
+            });
+        }
 
 
 
     }
     private void setDefaultMinMax(){
-     /*   this.maxEditText.setText(max);
-        this.minEditText.setText(min); */
-        String minStr = Integer.toString(min);
+        /*String minStr = Integer.toString(min);
         String maxStr = Integer.toString(max);
         this.minEditText.setText(minStr);
         this.maxEditText.setText(maxStr);
+        */
     }
     private void fetchValuesFromFields(){
         //Get the numbers from the text boxes
